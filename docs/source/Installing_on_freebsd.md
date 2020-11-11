@@ -15,7 +15,45 @@ The `$` symbol is your prompt - do not include it when running commands.
 
 ## Prerequisites
 
+# Install Python
 
+`$ sudo pkg install python`
+
+```
+Note that some standard Python modules are provided as separate ports
+as they require additional dependencies. They are available as:
+
+py37-gdbm       databases/py-gdbm@py37
+py37-sqlite3    databases/py-sqlite3@py37
+py37-tkinter    x11-toolkits/py-tkinter@py37
+```
+Install the first two but I don't think you'll need x11 for a server.
+
+`$ sudo pkg install py37-gdbm py37-sqlite3`
+
+`sudo pkg install py37-pip`
+
+## Install GIT
+
+`sudo pkg install git`
+
+## Install pip
+ `sudo pkg install py37-pip`
+
+## Install virtualenv
+`sudo pip install virtualenv`
+
+## Make a folder for Evennia
+```
+$ mkdir  evdev
+$ cd evdev
+```
+### Clone Evennia
+`git clone https://github.com/evennia/evennia.git`
+
+### Create the virtual env
+
+virtualenv evenv
 
 This will create a new folder, called `evenv`, containing the new python executable.
 Next, let's activate our new virtualenv. Every time you want to work on Evennia, you need to run the
