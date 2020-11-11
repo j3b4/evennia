@@ -7,14 +7,14 @@ This will help you download, install and start Evennia for the first time.
 > test out Evennia. Apart from downloading and updating you don't even need an
 > internet connection until you feel ready to share your game with the world.
 
-- [Quick Start](./Getting-Started#quick-start)
-- [Requirements](./Getting-Started#requirements)
-- [Linux Install](./Getting-Started#linux-install)
-- [Mac Install](./Getting-Started#mac-install)
-- [Windows Install](./Getting-Started#windows-install)
-- [Running in Docker](./Running-Evennia-in-Docker)
-- [Where to Go Next](./Getting-Started#where-to-go-next)
-- [Troubleshooting](./Getting-Started#troubleshooting)
+- [Quick Start](./Getting-Started.md#quick-start)
+- [Requirements](./Getting-Started.md#requirements)
+- [Linux Install](./Getting-Started.md#linux-install)
+- [Mac Install](./Getting-Started.md#mac-install)
+- [Windows Install](./Getting-Started.md#windows-install)
+- [Running in Docker](./Running-Evennia-in-Docker.md)
+- [Where to Go Next](./Getting-Started.md#where-to-go-next)
+- [Troubleshooting](./Getting-Started.md#troubleshooting)
 - [Glossary of terms](./Glossary)
 
 ## Quick Start
