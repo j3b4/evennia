@@ -2,10 +2,11 @@
 
 ## Evennia 1.0 (2019-) (WIP)
 
-- new `drop:holds()` lock default to limit dropping nonsensical things. Access check
+- New `drop:holds()` lock default to limit dropping nonsensical things. Access check
   defaults to True for backwards-compatibility in 0.9, will be False in 1.0
+- Add `tags.has()` method for checking if an object has a tag or tags (PR by ChrisLR)
 
-### Already in master
+### Evennia 0.9.5 (master)
 - `is_typeclass(obj (Object), exact (bool))` now defaults to exact=False
 - `py` command now reroutes stdout to output results in-game client. `py`
 without arguments starts a full interactive Python console.
@@ -38,9 +39,7 @@ without arguments starts a full interactive Python console.
   of texts (such as tables). New `justify` bool. Old `justify_kwargs` remains
   but is now only used to pass extra kwargs into the justify function.
 - EvMore `text` argument can now also be a list or a queryset. Querysets will be
-  sliced to only return the required data per page. EvMore takes a new kwarg
-  `page_formatter` which will be called for each page. This allows to customize
-  the display of queryset data, build a new EvTable per page etc.
+  sliced to only return the required data per page.
 - Improve performance of `find` and `objects` commands on large data sets (strikaco)
 - New `CHANNEL_HANDLER_CLASS` setting allows for replacing the ChannelHandler entirely.
 - Made `py` interactive mode support regular quit() and more verbose.
@@ -70,6 +69,20 @@ without arguments starts a full interactive Python console.
 - Make `INLINEFUNC_STACK_MAXSIZE` default visible in `settings_default.py`.
 - Change how `ic` finds puppets; non-priveleged users will use `_playable_characters` list as
   candidates, Builders+ will use list, local search and only global search if no match found.
+- Make `cmd.at_post_cmd()` always run after `cmd.func()`, even when the latter uses delays
+  with yield.
+- `EvMore` support for db queries and django paginators as well as easier to override for custom
+  pagination (e.g. to create EvTables for every page instead of splitting one table).
+- New `EvMore` methods `.init_pages`, `paginator` and `page_formatter` for easily customize pagination.
+- Using `EvMore pagination`, dramatically improves performance of `spawn/list` and `scripts` listings
+  (100x speed increase for displaying 1000+ prototypes/scripts).
+- `EvMenu` now uses the more logically named `.ndb._evmenu` instead of `.ndb._menutree` to store itself.
+  Both still work for backward compatibility, but `_menutree` is deprecated.
+- `EvMenu.msg(txt)` added as a central place to send text to the user, makes it easier to override.
+  Default `EvMenu.msg` sends with OOB type="menu" for use with OOB and webclient pane-redirects.
+- New EvMenu templating system for quickly building simpler EvMenus without as much code.
+- Add `Command.client_height()` method to match existing `.client_width` (stricako)
+- Include more Web-client info in `session.protocol_flags`.
 
 
 ## Evennia 0.9 (2018-2019)
